@@ -8,14 +8,12 @@
 
 int main(int argc, char **argv)
 {
-	 /*int fd[2];
-    pipe(fd, O_CLOEXEC);  // Call with the O_CLOEXEC flag to prevent any commands from blocking */
     
-	int fd[2];  /*okuma 0, yazma 1*/
+	int fd[2];  
 	pipe(fd);
 	pid_t pid = fork();
 	
-	if (pid == 0)		/*child*/
+	if (pid == 0)		
 	{
 		dup2(fd[1], 1);
 		close(fd[0]);
